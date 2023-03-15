@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Canard> mare = Arrays.asList(
+        List<CanardStrategy> mare = Arrays.asList(
                 new Colvert(),
                 new Mandarin(),
                 new CanardPlastique(),
@@ -13,7 +13,7 @@ public class Main {
                 new CanardEnPlastiqueMuet()
         );
 
-        for (Canard c : mare){
+        for (CanardStrategy c : mare){
             System.out.println("~~~~~~~~~~~~~~~");
             c.afficher();
             c.nager();

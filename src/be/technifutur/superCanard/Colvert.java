@@ -1,6 +1,6 @@
 package be.technifutur.superCanard;
 
-public class Colvert extends Canard{
+public class Colvert extends CanardStrategy {
     public Colvert() {
         super(new VolerAvecDesAiles(), new Cancan());
     }

@@ -1,6 +1,6 @@
 package be.technifutur.superCanard;
 
-public class CanardPlastique extends Canard {
+public class CanardPlastique extends CanardStrategy {
     public CanardPlastique() {
         super(new NePasVoler(), new Coincoin());
     }

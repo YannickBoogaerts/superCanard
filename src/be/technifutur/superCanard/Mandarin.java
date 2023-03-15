@@ -1,6 +1,6 @@
 package be.technifutur.superCanard;
 
-public class Mandarin extends Canard {
+public class Mandarin extends CanardStrategy {
     public Mandarin() {
         super(new VolerAvecDesAiles(), new Coincoin());
     }

@@ -1,6 +1,6 @@
 package be.technifutur.superCanard;
 
-public class Leurre extends Canard {
+public class Leurre extends CanardStrategy {
     public Leurre() {
         super(new NePasVoler(), () -> {
             System.out.println("....!");

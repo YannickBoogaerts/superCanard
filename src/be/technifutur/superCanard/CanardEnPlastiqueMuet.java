@@ -1,6 +1,6 @@
 package be.technifutur.superCanard;
 
-public class CanardEnPlastiqueMuet extends Canard{
+public class CanardEnPlastiqueMuet extends CanardStrategy {
     public CanardEnPlastiqueMuet() {
         super(new NePasVoler(), new Muet());
     }
