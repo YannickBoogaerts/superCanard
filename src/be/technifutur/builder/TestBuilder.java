@@ -13,21 +13,22 @@ public class TestBuilder {
         ElementLabyrinthe[][] labyrinthe = TestFabrique.getLabyrinthe(factory);
         StringLabyrintheBuider buider = new StringLabyrintheBuider();
         makeFromArrays(buider, labyrinthe);
+        System.out.println("----");
         System.out.println(buider.build());
     }
 
-    public static  void makeFromFile(LabyrintheBuilder builder,String fileName){
-        try(Scanner scan = new Scanner(new File(fileName))){
+    public static void makeFromFile(LabyrintheBuilder builder, String fileName) {
+        try (Scanner scan = new Scanner(new File(fileName))) {
             builder.start();
             int lig = 0;
-            while(scan.hasNextLine()){
+            while (scan.hasNextLine()) {
                 String line = scan.nextLine();
                 for (int col = 0; col < line.length(); col++) {
                     char c = line.charAt(col);
-                    switch (c){
-                        case 'm'-> builder.addMur(lig,col);
-                        case '.'-> builder.addPiece(lig,col);
-                        case 'p'-> builder.addPorte(lig,col);
+                    switch (c) {
+                        case 'm' -> builder.addMur(lig, col);
+                        case '.' -> builder.addPiece(lig, col);
+                        case 'p' -> builder.addPorte(lig, col);
                     }
                 }
                 lig++;
@@ -39,16 +40,16 @@ public class TestBuilder {
 
     }
 
-    public static void makeFromArrays(LabyrintheBuilder builder, ElementLabyrinthe[][] laby){
-
-        for (int lig = 0; lig < laby.length ; lig++) {
+    public static void makeFromArrays(LabyrintheBuilder builder, ElementLabyrinthe[][] laby) {
+        builder.start();
+        for (int lig = 0; lig < laby.length; lig++) {
             for (int col = 0; col < laby[lig].length; col++) {
-                if(laby[lig][col] instanceof Piece){
-                    builder.addPiece(lig,col);
-                } else if (laby[lig][col] instanceof Porte){
-                    builder.addPorte(lig,col);
-                } else if (laby[lig][col] instanceof Mur){
-                    builder.addMur(lig,col);
+                if (laby[lig][col] instanceof Piece) {
+                    builder.addPiece(lig, col);
+                } else if (laby[lig][col] instanceof Porte) {
+                    builder.addPorte(lig, col);
+                } else if (laby[lig][col] instanceof Mur) {
+                    builder.addMur(lig, col);
                 }
             }
         }
