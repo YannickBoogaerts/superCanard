@@ -5,22 +5,31 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<CanardStrategy> mare = Arrays.asList(
+        List<Canard> mare = Arrays.asList(
                 new Colvert(),
-                new Mandarin(),
+                getBeauColvertMuet(),
                 new CanardPlastique(),
                 new Leurre(),
                 new CanardEnPlastiqueMuet()
         );
 
-        for (CanardStrategy c : mare){
+        for (Canard c : mare){
             System.out.println("~~~~~~~~~~~~~~~");
             c.afficher();
             c.nager();
-            c.setComportementDeCancan(new Begayer(c.getComportementDeCancan()));
             c.effectuerCancan();
             c.effectuerVol();
         }
+    }
+
+    /**
+     * Methode factory
+     * @return
+     */
+    private static Canard getBeauColvertMuet() {
+        Colvert canard = new Colvert();
+        canard.setComportementDeCancan(new Muet());
+        return new CanardAvecVagues(canard);
     }
 
 
